@@ -1,1 +1,23 @@
+pipeline {
+    agent any 
+    stages {
+        stage('clone') { 
+            steps {
+                sh "rm -rf *"
+                sh "git clone https://github.com/keyce-academy/tp-jenkins-git.git"
+
+            }
+        }
+        stage('build') { 
+            steps {
+                sh "javac Main.java"
+            }
+        }
+        stage('run') { 
+            steps {
+                sh "java Main"
+            }
+        }
+    }
+}
 
